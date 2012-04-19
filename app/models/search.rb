@@ -34,6 +34,8 @@ class Search < ActiveRecord::Base
             new_link.frequency = 1
             new_link.add_source(tweet.from_user)
             new_link.search_id = id
+            new_link.first_tweeted = tweet.created_at
+            new_link.moderation_status = :new
             new_link.save
           else
             existing_link.frequency = existing_link.frequency + 1

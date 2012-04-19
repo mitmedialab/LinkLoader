@@ -1,0 +1,8 @@
+<% @recent_links.each do |l| %>
+<div class="row">
+	<div class="span7"><%=l.url %></div>
+	<div class="span1"><%=l.frequency %></div>
+	<div class="span1"><%=l.moderation_status %></div>
+</div>
+<% end %>
+

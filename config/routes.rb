@@ -2,7 +2,10 @@ LinkLoader::Application.routes.draw do
   resources :links
   
   match 'searches/:id/update_results' => 'searches#update_results'
+  match 'searches/:id/links' => 'searches#links'
+  
   resources :searches
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

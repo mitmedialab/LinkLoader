@@ -11,15 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120410184252) do
+ActiveRecord::Schema.define(:version => 20120419135421) do
 
   create_table "links", :force => true do |t|
     t.integer  "search_id"
     t.string   "url"
     t.integer  "frequency"
     t.string   "sources"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "moderation_status"
+    t.datetime "first_tweeted"
   end
 
   create_table "searches", :force => true do |t|
