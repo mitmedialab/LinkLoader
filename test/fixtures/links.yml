@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  search_id: 1
+  url: MyString
+  frequency: 1
+  sources: MyString
+
+two:
+  search_id: 1
+  url: MyString
+  frequency: 1
+  sources: MyString

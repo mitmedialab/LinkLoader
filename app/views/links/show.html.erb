@@ -1,0 +1,27 @@
+<h1>Link</h1>
+
+<p>
+  <b>Search</b><br>
+  <%= @link.search_id %>
+</p>
+
+<p>
+  <b>Url</b><br>
+  <%= @link.url %>
+</p>
+
+<p>
+  <b>Frequency</b><br>
+  <%= @link.frequency %>
+</p>
+
+<p>
+  <b>Sources</b><br>
+  <%= @link.sources %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', links_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_link_path(@link), :class => 'btn' %>
+  <%= link_to 'Delete', link_path(@link), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

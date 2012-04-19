@@ -1,0 +1,27 @@
+<h1>Searches</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Query</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @searches.each do |search| %>
+      <tr>
+        <td><%= search.id %></td>
+        <td><%= link_to search.query, search_path(search) %></td>
+        <td><%= search.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_search_path(search), :class => 'btn btn-mini' %>
+          <%= link_to 'Update Results', 'searches/'+search.id.to_s+'/update_results', :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', search_path(search), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_search_path, :class => 'btn btn-primary' %>

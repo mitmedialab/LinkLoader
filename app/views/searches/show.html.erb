@@ -1,0 +1,17 @@
+<h1>Search</h1>
+
+<p>
+  <b>Query</b><br>
+  <%= @search.query %>
+</p>
+
+<p>
+  <b>Last</b><br>
+  <%= @search.last_id %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', searches_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_search_path(@search), :class => 'btn' %>
+  <%= link_to 'Delete', search_path(@search), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

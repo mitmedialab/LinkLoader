@@ -1,0 +1,26 @@
+<h1>Links</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Search</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @links.each do |link| %>
+      <tr>
+        <td><%= link.id %></td>
+        <td><%= link_to link.search_id, link_path(link) %></td>
+        <td><%= link.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_link_path(link), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', link_path(link), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_link_path, :class => 'btn btn-primary' %>
