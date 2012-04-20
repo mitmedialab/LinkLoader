@@ -3,6 +3,7 @@ LinkLoader::Application.routes.draw do
   
   match 'searches/:id/update_results' => 'searches#update_results'
   match 'searches/:id/links' => 'searches#links'
+  match 'searches/:id/featured_link' => 'searches#featured_link'
   
   resources :searches
   

@@ -1,3 +1,23 @@
 // Place all the styles related to the Searches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#ll-feature-title {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  z-index: 1030;
+  margin: 0px;
+  padding: 10px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #000000;
+  color: #ffffff;
+}
+
+#ll-feature-content {
+  width: 100%;
+  height: 100%;
+  border: 0px;
+  border-style: none;
+}

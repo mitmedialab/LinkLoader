@@ -1,0 +1,5 @@
+<h1 id="ll-feature-title"><%=@search.query%></h1>
+
+<% if @has_featured_link %>
+	<iframe id="ll-feature-content" src=<%=@featured_link.url%>>
+<% end %>

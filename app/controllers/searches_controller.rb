@@ -1,4 +1,15 @@
 class SearchesController < ApplicationController
+ 
+  # show the content of the search's featured link by itself in a big iframe
+  def featured_link
+    # load the search item
+    @search = Search.find(params[:id])
+    # figure out what the featured link is
+    @has_featured_link = true       #@search.has_featured_link?
+    @featured_link = Link.find(5)   #Link.find(@search.featured_link_id)
+    # render it without any of the standard templating
+    render :layout => "skeletal"
+  end
 
   def links
     @recent_links = Link.where(:search_id => 1).order(:first_tweeted=>"DESC").limit(50)
