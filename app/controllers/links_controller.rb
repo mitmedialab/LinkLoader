@@ -1,4 +1,20 @@
 class LinksController < ApplicationController
+  
+  def approve
+    @link = Link.find(params[:id])
+    @link.moderation_status = :approved
+    @link.save
+    redirect_to "/searches/"+@link.search_id.to_s+"/links"
+  end
+
+  def reject
+    @link = Link.find(params[:id])
+    @link.moderation_status = :rejected
+    @link.save
+    redirect_to "/searches/"+@link.search_id.to_s+"/links"
+  end
+  
+
   # GET /links
   # GET /links.json
   def index

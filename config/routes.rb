@@ -1,4 +1,7 @@
 LinkLoader::Application.routes.draw do
+  match 'links/:id/approve' => 'links#approve'
+  match 'links/:id/reject' => 'links#reject'
+  
   resources :links
   
   match 'searches/:id/update_results' => 'searches#update_results'
