@@ -21,3 +21,25 @@
   border: 0px;
   border-style: none;
 }
+
+.link-wrapper {
+  padding: 5px 0px;
+  border-bottom: 1px solid #dddddd;  
+}
+
+.link-rejected ,
+.link-rejected a {
+  color: #cccccc;
+}
+
+footer {
+  margin-top: 20px;
+}
+
+.link-list {
+  margin-top: 10px;
+}
+
+.link-list .link-wrapper:first-child {  
+  border-top: 1px solid #dddddd;  
+}

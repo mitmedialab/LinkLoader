@@ -1,19 +1,35 @@
 <h1><%= @search.query %></h1>
-<% @recent_links.each do |l| %>
-<div class="row">
-	<div class="span1">
-		<% if l.id == @search.featured_link_id %>
-			FEATURED
-		<% end %>
+
+<div class="link-list">
+	<% @recent_links.each do |l| %>
+		<%
+		moderationCss = ""
+		rowCss = ""
+		case l.moderation_status
+		when 'rejected'
+			moderationCss = "label-important"
+		when 'new'
+			moderationCss = "label-info"
+		when 'accepted'
+			moderationCss = "label-success"
+		end
+		%>
+	
+	<div class="row link-wrapper link-<%=l.moderation_status%>">
+		<div class="span1">
+			<% if l.id == @search.featured_link_id %>
+				<span class="label label-warning">FEATURED</span>
+			<% end %>
+			<span class="label <%=moderationCss%>"><%=l.moderation_status %></span>
 		</div>
-	<div class="span6"><%=link_to(l.url,l.url) %></div>
-	<div class="span1"><%=l.frequency %></div>
-	<div class="span1"> 
-		<a href="/links/<%=l.id%>/approve">Approve</a> 
-		<a href="/links/<%=l.id%>/reject">Reject</a> 
-		<a href="/links/<%=l.id%>/feature">Feature</a> 
-		<%=l.moderation_status %>
+		<div class="span5"><%=link_to(l.url,l.url) %></div>
+		<div class="span1"><%=l.frequency %></div>
+		<div class="span3"> 
+			<a class="btn" href="/links/<%=l.id%>/approve">Approve</a>  
+			<a class="btn" href="/links/<%=l.id%>/reject">Reject</a>  
+			<a class="btn" href="/links/<%=l.id%>/feature">Feature</a> 
+		</div>
 	</div>
+	<% end %>
 </div>
-<% end %>
 
