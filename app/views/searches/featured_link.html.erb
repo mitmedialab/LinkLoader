@@ -1,5 +1,29 @@
 <h1 id="ll-feature-title"><%=@search.query%></h1>
 
-<% if @has_featured_link %>
-	<iframe id="ll-feature-content" src=<%=@featured_link.url%>>
-<% end %>
+<script type="text/javascript">
+//<![CDATA[
+currentContentUrl = null;
+
+function updateContentUrl(newUrl){
+	if(currentContentUrl!=newUrl){
+		$('#ll-feature-content').attr('src',newUrl);
+		currentContentUrl = newUrl;
+	}
+}
+
+function fetchFeaturedLink(){
+	$.getJSON('/searches/<%=@search.id%>/featured_link.json', function(data) {
+		updateContentUrl(data.url);
+	});
+}
+
+function startPeriodicUpdating(){
+	fetchFeaturedLink();
+	handle = setInterval("fetchFeaturedLink()", 5000); 
+}
+
+$(startPeriodicUpdating);
+//]]>
+</script>
+
+<iframe id="ll-feature-content">

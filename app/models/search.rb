@@ -16,6 +16,10 @@ class Search < ActiveRecord::Base
     return results
   end
   
+  def has_featured_link?
+    featured_link_id!=nil
+  end
+  
   def been_run?
     self.last_id != nil && self.last_id > 0
   end

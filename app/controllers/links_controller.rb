@@ -1,5 +1,13 @@
 class LinksController < ApplicationController
   
+  def feature
+    @link = Link.find(params[:id])
+    @search = Search.find(@link.search_id)
+    @search.featured_link_id = @link.id
+    @search.save
+    redirect_to "/searches/"+@link.search_id.to_s+"/links"
+  end
+  
   def approve
     @link = Link.find(params[:id])
     @link.moderation_status = :approved

@@ -1,6 +1,7 @@
 LinkLoader::Application.routes.draw do
   match 'links/:id/approve' => 'links#approve'
   match 'links/:id/reject' => 'links#reject'
+  match 'links/:id/feature' => 'links#feature'
   
   resources :links
   
@@ -9,6 +10,8 @@ LinkLoader::Application.routes.draw do
   match 'searches/:id/featured_link' => 'searches#featured_link'
   
   resources :searches
+  
+  root :to => 'searches#index'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

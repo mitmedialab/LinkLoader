@@ -18,6 +18,8 @@
     </style>
     <%= stylesheet_link_tag "application", :media => "all" %>
 
+	<%= javascript_include_tag "application" %>
+
     <!-- Le fav and touch icons -->
     <link href="images/favicon.ico" rel="shortcut icon">
     <link href="images/apple-touch-icon.png" rel="apple-touch-icon">
@@ -27,11 +29,6 @@
   <body>
 
 	<%= yield %>
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <%= javascript_include_tag "application" %>
 
   </body>
 </html>

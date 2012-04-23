@@ -5,10 +5,13 @@ class SearchesController < ApplicationController
     # load the search item
     @search = Search.find(params[:id])
     # figure out what the featured link is
-    @has_featured_link = true       #@search.has_featured_link?
-    @featured_link = Link.find(5)   #Link.find(@search.featured_link_id)
+    @has_featured_link = @search.has_featured_link?
+    @featured_link = Link.find(@search.featured_link_id) if @has_featured_link
     # render it without any of the standard templating
-    render :layout => "skeletal"
+    respond_to do |format|
+      format.html { render :layout => "skeletal" }
+      format.json { render json: @featured_link}
+    end
   end
 
   def links

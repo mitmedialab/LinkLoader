@@ -15,8 +15,11 @@
         <td><%= link_to search.query, search_path(search) %></td>
         <td><%= search.created_at %></td>
         <td>
-          <%= link_to 'Edit', edit_search_path(search), :class => 'btn btn-mini' %>
           <%= link_to 'Update Results', 'searches/'+search.id.to_s+'/update_results', :class => 'btn btn-mini' %>
+          <%= link_to 'See Links', 'searches/'+search.id.to_s+'/links', :class => 'btn btn-mini' %>
+          <%= link_to 'Featured Link', 'searches/'+search.id.to_s+'/featured_link', :class => 'btn btn-mini' %>
+          <br />
+          <%= link_to 'Edit', edit_search_path(search), :class => 'btn btn-mini' %>
           <%= link_to 'Destroy', search_path(search), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
