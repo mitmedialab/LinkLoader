@@ -15,6 +15,19 @@ class Search < ActiveRecord::Base
     found_links_count
   end
   
+  def self.update_all
+    Rails::logger.info("Starting to update all active searches:")
+    self.all.each do |s|
+      if s.active?
+        links_found = s.update_results
+        Rails::logger.info("  Updated search results for #{s.query} - got #{links_found} reults")
+      else 
+        Rails::logger.info("  Skipping inactive search #{s.query}")
+      end
+    end
+    Rails::logger.info("done updating all active searches")
+  end
+  
   private 
     
     def latest_results

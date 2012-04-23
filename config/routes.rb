@@ -1,4 +1,5 @@
 LinkLoader::Application.routes.draw do
+
   match 'links/:id/approve' => 'links#approve'
   match 'links/:id/reject' => 'links#reject'
   match 'links/:id/feature' => 'links#feature'
@@ -8,6 +9,7 @@ LinkLoader::Application.routes.draw do
   match 'searches/:id/update_results' => 'searches#update_results'
   match 'searches/:id/links' => 'searches#links'
   match 'searches/:id/featured_link' => 'searches#featured_link'
+  match 'searches/update_all' => 'searches#update_all'
   
   resources :searches
   

@@ -1,5 +1,10 @@
 class SearchesController < ApplicationController
  
+  def update_all
+    Search.update_all
+    render :text => "Updated all", :status => 200
+  end
+ 
   # show the content of the search's featured link by itself in a big iframe
   def featured_link
     # load the search item
