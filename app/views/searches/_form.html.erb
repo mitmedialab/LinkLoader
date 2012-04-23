@@ -16,6 +16,20 @@
       </div>
     </div>
 
+    <div class="control-group">
+      <%= f.label :featured_link_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :featured_link_id, :class => 'number_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :active, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :active, :class => 'check_box' %>
+      </div>
+    </div>
+
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to 'Cancel', searches_path, :class => 'btn' %>

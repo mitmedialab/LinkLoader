@@ -22,8 +22,7 @@ class SearchesController < ApplicationController
   
   def update_results
     @search = Search.find(params[:id])
-    new_tweets = @search.latest_results
-    saved_links = @search.save_tweeted_links(new_tweets)
+    @search.update_results
     redirect_to '/searches/'+@search.id.to_s+'/links'
   end
   # GET /searches

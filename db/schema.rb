@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120419145608) do
+ActiveRecord::Schema.define(:version => 20120423175435) do
 
   create_table "links", :force => true do |t|
     t.integer  "search_id"
@@ -27,9 +27,10 @@ ActiveRecord::Schema.define(:version => 20120419145608) do
   create_table "searches", :force => true do |t|
     t.string   "query"
     t.integer  "last_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.integer  "featured_link_id"
+    t.boolean  "active",           :default => false
   end
 
 end
