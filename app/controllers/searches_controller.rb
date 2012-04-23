@@ -24,6 +24,7 @@ class SearchesController < ApplicationController
     @search = Search.find(params[:id])
     new_tweets = @search.latest_results
     saved_links = @search.save_tweeted_links(new_tweets)
+    redirect_to '/searches/'+@search.id.to_s+'/links'
   end
   # GET /searches
   # GET /searches.json
