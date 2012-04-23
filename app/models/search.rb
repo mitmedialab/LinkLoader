@@ -11,8 +11,8 @@ class Search < ActiveRecord::Base
 
   def update_results
     new_tweets = latest_results
-    saved_links = save_tweeted_links(new_tweets)
-    saved_links
+    found_links_count = save_tweeted_links(new_tweets)
+    found_links_count
   end
   
   private 
