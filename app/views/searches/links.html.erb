@@ -22,7 +22,11 @@
 			<% end %>
 			<span class="label <%=moderationCss%>"><%=l.moderation_status %></span>
 		</div>
-		<div class="span5"><%=link_to(l.url,l.url) %></div>
+		<div class="span7">
+			<%=link_to(l.url,l.url) %>
+			<br />
+			<small><%= time_ago_in_words(l.first_tweeted) %>: <%=l.sources.split(",").join(", ")%></small>
+		</div>
 		<div class="span1"><%=l.frequency %></div>
 		<div class="span3"> 
 			<a class="btn" href="/links/<%=l.id%>/approve">Approve</a>  

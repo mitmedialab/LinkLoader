@@ -6,7 +6,7 @@ class Search < ActiveRecord::Base
   end
   
   def been_run?
-    self.last_id != nil && self.last_id > 0
+    self.last_id != nil && self.last_id != nil
   end
 
   def update_results

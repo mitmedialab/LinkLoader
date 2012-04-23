@@ -6,8 +6,18 @@
 </p>
 
 <p>
-  <b>Last</b><br>
+  <b>Last Id</b><br>
   <%= @search.last_id %>
+</p>
+
+<p>
+  <b>Active</b><br>
+  <%= @search.active?.to_s %>
+</p>
+
+<p>
+  <b>Featured Link Id</b><br>
+  <%= @search.featured_link_id %>
 </p>
 
 <div class="form-actions">

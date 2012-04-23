@@ -16,7 +16,7 @@ class SearchesController < ApplicationController
 
   def links
     @search = Search.find(params[:id])
-    @recent_links = Link.where(:search_id => 1).order(:first_tweeted=>"DESC").limit(50)
+    @recent_links = Link.where(:search_id => @search.id).order('first_tweeted DESC').limit(100)
     @featured_link = Link.find(@search.featured_link_id) if @search.featured_link_id != nil
   end  
   
