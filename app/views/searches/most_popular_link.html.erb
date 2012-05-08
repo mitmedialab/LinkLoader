@@ -1,0 +1,29 @@
+<h1 id="ll-feature-title"><%=@search.query%></h1>
+
+<script type="text/javascript">
+//<![CDATA[
+currentContentUrl = null;
+
+function updateContentUrl(newUrl){
+	if(currentContentUrl!=newUrl){
+		$('#ll-feature-content').attr('src',newUrl);
+		currentContentUrl = newUrl;
+	}
+}
+
+function fetchPopularLink(){
+	$.getJSON('/searches/<%=@search.id%>/most_popular_link.json', function(data) {
+		updateContentUrl(data.url);
+	});
+}
+
+function startPeriodicUpdating(){
+	fetchPopularLink();
+	handle = setInterval("fetchPopularLink()", 5000); 
+}
+
+$(startPeriodicUpdating);
+//]]>
+</script>
+
+<iframe id="ll-feature-content">

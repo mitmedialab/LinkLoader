@@ -18,6 +18,18 @@ class SearchesController < ApplicationController
       format.json { render json: @featured_link}
     end
   end
+  
+   def most_popular_link
+    # load the search item
+    @search = Search.find(params[:id])
+    # figure out what the featured link is
+    @popular_link = Link.where(:search_id=>@search.id).order("frequency DESC, first_tweeted DESC").first
+    # render it without any of the standard templating
+    respond_to do |format|
+      format.html { render :layout => "skeletal" }
+      format.json { render json: @popular_link}
+    end
+  end
 
   def links
     @search = Search.find(params[:id])

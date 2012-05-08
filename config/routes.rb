@@ -10,6 +10,7 @@ LinkLoader::Application.routes.draw do
   match 'searches/:id/links' => 'searches#links'
   match 'searches/:id/featured_link' => 'searches#featured_link'
   match 'searches/update_all' => 'searches#update_all'
+  match 'searches/:id/most_popular_link' => 'searches#most_popular_link'
   
   resources :searches
   
