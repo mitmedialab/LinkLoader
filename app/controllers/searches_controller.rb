@@ -22,8 +22,12 @@ class SearchesController < ApplicationController
    def most_popular_link
     # load the search item
     @search = Search.find(params[:id])
-    # figure out what the featured link is
-    @popular_link = Link.where(:search_id=>@search.id).order("frequency DESC, first_tweeted DESC").first
+    # in the last 3 days
+    three_days_ago=Time.now.to_i-259200
+    # figure out what the most popular link is
+    @popular_link = Link.where(:search_id=>@search.id).
+      where("strftime('%s',first_tweeted)>'"+three_days_ago.to_s+"'").
+      order("frequency DESC, first_tweeted DESC").first
     # render it without any of the standard templating
     respond_to do |format|
       format.html { render :layout => "skeletal" }
@@ -34,7 +38,7 @@ class SearchesController < ApplicationController
   def links
     @search = Search.find(params[:id])
     @recent_links = Link.where(:search_id => @search.id).order('first_tweeted DESC').limit(100)
-    @featured_link = Link.find(@search.featured_link_id) if @search.featured_link_id != nil
+    @featured_link = Link.find(@search.featured_link_id) if @search.has_featured_link?
   end  
   
   def update_results

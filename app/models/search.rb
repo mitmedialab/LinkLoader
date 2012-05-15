@@ -2,7 +2,7 @@ class Search < ActiveRecord::Base
   has_many :links
   
   def has_featured_link?
-    featured_link_id!=nil
+    featured_link_id!=nil && featured_link_id!=0
   end
   
   def been_run?

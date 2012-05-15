@@ -23,7 +23,7 @@ end
 gem 'jquery-rails'
 gem 'twitter'
 gem 'twitter-bootstrap-rails'
-gem 'mysql2'  # on os x lion you may need to run: sudo ln -s /usr/local/mysql/lib/libmysqlclient.18.dylib /usr/lib/libmysqlclient.18.dylib
+# gem 'mysql2'  # on os x lion you may need to run: sudo ln -s /usr/local/mysql/lib/libmysqlclient.18.dylib /usr/lib/libmysqlclient.18.dylib
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

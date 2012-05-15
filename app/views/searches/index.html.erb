@@ -4,6 +4,7 @@
     <tr>
       <th>ID</th>
       <th>Query</th>
+      <th>Category</th>
       <th>Created at</th>
       <th>Actions</th>
     </tr>
@@ -13,6 +14,7 @@
       <tr>
         <td><%= search.id %></td>
         <td><%= link_to search.query, search_path(search) %></td>
+        <td><%= search.category %></td>
         <td><%= search.created_at %></td>
         <td>
           <%= link_to 'Update Results', '/searches/'+search.id.to_s+'/update_results', :class => 'btn btn-mini' %>
