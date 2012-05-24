@@ -50,6 +50,24 @@ class SearchesController < ApplicationController
       format.json { render json: @random_link}
     end
   end
+  
+  def stream
+    # load the search item
+    @search = Search.find(params[:id])
+    respond_to do |format|
+      format.html { render :layout => "skeletal" }
+    end
+  end
+  
+   def stream_details
+    # load the search item
+    @search = Search.find(params[:id])
+    @tweets = @search.get_stream
+    respond_to do |format|
+      format.html { render :layout => nil }
+      format.json { render json: @tweets}
+    end
+  end
 
   def links
     @search = Search.find(params[:id])

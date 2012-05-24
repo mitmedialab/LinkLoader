@@ -22,6 +22,7 @@
           <%= link_to 'Featured Link', '/searches/'+search.id.to_s+'/featured_link', :class => 'btn btn-mini' %>
           <%= link_to 'Most Popular Link', '/searches/'+search.id.to_s+'/most_popular_link', :class => 'btn btn-mini' %>
           <%= link_to 'Random Link', '/searches/'+search.id.to_s+'/random_link', :class => 'btn btn-mini' %>
+          <%= link_to 'Stream', '/searches/'+search.id.to_s+'/stream', :class => 'btn btn-mini' %>
           <br />
           <%= link_to 'Edit', edit_search_path(search), :class => 'btn btn-mini' %>
           <%= link_to 'Destroy', search_path(search), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>

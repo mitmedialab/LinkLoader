@@ -1,0 +1,22 @@
+<h1 id="ll-feature-title"><%=@search.query%></h1>
+
+<script type="text/javascript">
+//<![CDATA[
+
+// if it's a new URL, change what the iframe is showing
+function updateStream(newUrl){
+		$('#ll-feature-content').attr('src',"/searches/<%=@search.id%>/stream_details");
+}
+
+
+// get popular link and start checking for new one every x seconds
+function startPeriodicUpdating(){
+	updateStream();
+	handle = setInterval("updateStream()", 50000); 
+}
+// start when webpage loads
+$(startPeriodicUpdating);
+//]]>
+</script>
+<!-- iframe content here -->
+<iframe id="ll-feature-content">

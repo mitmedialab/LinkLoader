@@ -28,6 +28,19 @@ class Search < ActiveRecord::Base
     Rails::logger.info("done updating all active searches")
   end
   
+  def get_stream
+    if self.category == "Search"
+      results = Twitter.search(query, :rpp=>20, :include_entities=>true)
+    elsif self.category == "List"
+      # split query into username and listname
+      query_parts = self.query.split('/')
+      username = query_parts.first
+      listname = query_parts.second
+      results = Twitter.list_timeline(username, listname, :per_page=>100, :include_entities=>true)
+    end
+    return results
+  end
+  
   private 
     def latest_results
       results = []
