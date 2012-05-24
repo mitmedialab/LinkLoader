@@ -33,6 +33,22 @@ class SearchesController < ApplicationController
       format.html { render :layout => "skeletal" }
       format.json { render json: @popular_link}
     end
+   end
+    
+   def random_link
+    # load the search item
+    @search = Search.find(params[:id])
+    # in the last 3 days
+    three_days_ago=Time.now.to_i-259200
+    # figure out what the most popular link is
+    @random_link = Link.where(:search_id=>@search.id).
+      where("strftime('%s',first_tweeted)>'"+three_days_ago.to_s+"'").
+      order("random()").first
+    # render it without any of the standard templating
+    respond_to do |format|
+      format.html { render :layout => "skeletal" }
+      format.json { render json: @random_link}
+    end
   end
 
   def links

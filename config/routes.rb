@@ -11,6 +11,7 @@ LinkLoader::Application.routes.draw do
   match 'searches/:id/featured_link' => 'searches#featured_link'
   match 'searches/update_all' => 'searches#update_all'
   match 'searches/:id/most_popular_link' => 'searches#most_popular_link'
+  match 'searches/:id/random_link' => 'searches#random_link'
   
   resources :searches
   

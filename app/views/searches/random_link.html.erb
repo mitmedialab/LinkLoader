@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
 //<![CDATA[
-// the URL the iFrame is currently showing
+// the URL the iframe is currently showing
 currentContentUrl = null;
 
 // if it's a new URL, change what the iframe is showing
@@ -13,16 +13,16 @@ function updateContentUrl(newUrl){
 	}
 }
 // asks server for most popular link in json format
-function fetchPopularLink(){
-	$.getJSON('/searches/<%=@search.id%>/most_popular_link.json', function(data) {
+function fetchLink(){
+	$.getJSON('/searches/<%=@search.id%>/random_link.json', function(data) {
 		updateContentUrl(data.url);
 	});
 }
 
-// get popular link and start checking for new one every 5 seconds
+// get popular link and start checking for new one every x seconds
 function startPeriodicUpdating(){
-	fetchPopularLink();
-	handle = setInterval("fetchPopularLink()", 5000); 
+	fetchLink();
+	handle = setInterval("fetchLink()", 50000); 
 }
 // start when webpage loads
 $(startPeriodicUpdating);
